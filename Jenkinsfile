@@ -2,10 +2,6 @@
 pipeline{
     agent any
 
-    environment {
-      env = load "./config.env"
-     }
-
     tools {
 	maven 'Maven'
     }
@@ -25,14 +21,14 @@ pipeline{
         stage('Prepare Artifacts'){
            steps {
 	       sh 'mkdir Builds'
-	       sh 'cp target/*.jar Builds/$JAR_FILE'
+	       sh 'cp target/*.jar Builds/spring-boot-app.jar'
 	   } 
         }
 
         stage('Build Docker Image') {
             steps {
                 script {
-                    docker.build("${DOCKER_IMAGE}:${DOCKER_TAG}", "-f Dockerfile .")
+                    docker.build("spring-boot-app:v1", "-f Dockerfile .")
                 }
             }
         }
