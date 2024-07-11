@@ -3,7 +3,7 @@ pipeline{
     agent any
 
     environment {
-      env = load ".env"
+      env = load "./config.env"
      }
 
     tools {
