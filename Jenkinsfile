@@ -26,7 +26,7 @@ pipeline{
 
         stage('Build Docker Image') {
             steps {
-		sh 'docker build -t spring-boot-app:v1 .'
+		sh 'docker build -t spring-boot-app:v1 -f ./CI/Dockerfile'
             }
         }
 
