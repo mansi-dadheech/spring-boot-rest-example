@@ -20,7 +20,6 @@ pipeline{
 
         stage('Prepare Artifacts'){
            steps {
-	       sh 'mkdir Builds'
 	       sh 'cp target/*.jar Builds/spring-boot-app.jar'
 	   } 
         }
