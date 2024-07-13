@@ -33,6 +33,7 @@ pipeline {
 	stage('Push image') {
             steps {
                 script {
+	           sh "docker tag spring-boot-app:v1 mansi22/spring-boot-app:v1"		
                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
                        def app = docker.image("mansi22/spring-boot-app:v1")
                        app.push()
