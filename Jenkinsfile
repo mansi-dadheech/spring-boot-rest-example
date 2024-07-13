@@ -1,5 +1,5 @@
 
-pipeline{
+pipeline {
     agent any
 
     tools {
@@ -33,15 +33,15 @@ pipeline{
 	stage('Push image') {
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-                        def app = docker.image("spring-boot-app")
-                        app.push("v1")
-                    }
-		}
+                   docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+                       def app = docker.image("mansi22/spring-boot-app:v1")
+                       app.push()
+                   }
+	        }
 	    }
-	}
 
     }
 }
-
+}
+	
 
